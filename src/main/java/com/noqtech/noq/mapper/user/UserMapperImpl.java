@@ -1,9 +1,9 @@
-package com.noqtech.noq.mapper;
+package com.noqtech.noq.mapper.user;
 
 import com.noqtech.noq.dto.UserDto;
-import com.noqtech.noq.entity.NoQUser;
-import com.noqtech.noq.model.UserRequest;
-import com.noqtech.noq.model.UserResponse;
+import com.noqtech.noq.entity.User;
+import com.noqtech.noq.model.user.UserRequest;
+import com.noqtech.noq.model.user.UserResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -21,11 +21,11 @@ public class UserMapperImpl implements UserMapperI {
         return modelMapper.map(userDto, UserResponse.class);
     }
 
-    public UserDto convertEntityToDto(NoQUser user) {
+    public UserDto convertEntityToDto(User user) {
         return modelMapper.map(user, UserDto.class);
     }
 
-    public NoQUser convertDtoToEntity(UserDto userDto) {
-        return modelMapper.map(userDto, NoQUser.class);
+    public User convertDtoToEntity(UserDto userDto) {
+        return modelMapper.map(userDto, User.class);
     }
 }

@@ -1,10 +1,10 @@
-package com.noqtech.noq.service;
+package com.noqtech.noq.service.user;
 
 import com.google.common.hash.Hashing;
 import com.noqtech.noq.constant.UserConstant;
 import com.noqtech.noq.dto.UserDto;
-import com.noqtech.noq.entity.NoQUser;
-import com.noqtech.noq.mapper.UserMapperI;
+import com.noqtech.noq.entity.User;
+import com.noqtech.noq.mapper.user.UserMapperI;
 import com.noqtech.noq.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserServiceI {
 
     @Override
     public UserDto login(UserDto userDto) {
-        NoQUser user = userRepository.findByEmailId(userDto.getEmailId());
+        User user = userRepository.findByEmailId(userDto.getEmailId());
         String password = userDto.getPassword();
         userDto.setPassword("");
         if (Objects.isNull(user)) {
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserServiceI {
     @Override
     public UserDto register(UserDto userDto) {
 
-        NoQUser user = userRepository.findByEmailId(userDto.getEmailId());
+        User user = userRepository.findByEmailId(userDto.getEmailId());
         if (!Objects.isNull(user)) {
             userDto.setMessage(UserConstant.EMAIL_ID_ALREADY_EXISTS);
             return userDto;
@@ -56,7 +56,7 @@ public class UserServiceImpl implements UserServiceI {
                 .hashString(password, StandardCharsets.UTF_8)
                 .toString();
         userDto.setPassword(hashedPassword);
-        user = new NoQUser(userDto);
+        user = new User(userDto);
         user = userRepository.saveAndFlush(user);
         userDto = userMapper.convertEntityToDto(user);
         if (!Objects.isNull(user.getId())) {
