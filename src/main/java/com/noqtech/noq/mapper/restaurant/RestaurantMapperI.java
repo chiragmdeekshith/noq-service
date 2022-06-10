@@ -10,8 +10,11 @@ import com.noqtech.noq.model.restaurant.RestaurantResponse;
 import java.util.List;
 
 public interface RestaurantMapperI {
-    public RestaurantDto convertEntityToDto(Restaurant restaurant);
-    public RestaurantResponse convertDtoToResponse(RestaurantDto restaurantDto);
-    public RestaurantDetailResponse convertDtoToResponse(RestaurantDetailDto restaurantDetailDto);
-    public RestaurantDetailDto convertEntityToDto(Restaurant restaurant, List<Item> items);
+    RestaurantDto convertEntityToDto(Restaurant restaurant);
+
+    RestaurantResponse convertDtoToResponse(RestaurantDto restaurantDto);
+
+    RestaurantDetailResponse convertDtoToResponse(RestaurantDetailDto restaurantDetailDto);
+
+    RestaurantDetailDto convertEntityToDto(Restaurant restaurant, List<Item> items);
 }

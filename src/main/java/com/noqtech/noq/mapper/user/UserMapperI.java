@@ -6,11 +6,11 @@ import com.noqtech.noq.model.user.UserRequest;
 import com.noqtech.noq.model.user.UserResponse;
 
 public interface UserMapperI {
-    public UserDto convertRequestToDto(UserRequest userRequest);
+    UserDto convertRequestToDto(UserRequest userRequest);
 
-    public UserResponse convertDtoToResponse(UserDto userDto);
+    UserResponse convertDtoToResponse(UserDto userDto);
 
-    public UserDto convertEntityToDto(User user);
+    UserDto convertEntityToDto(User user);
 
-    public User convertDtoToEntity(UserDto userDto);
+    User convertDtoToEntity(UserDto userDto);
 }

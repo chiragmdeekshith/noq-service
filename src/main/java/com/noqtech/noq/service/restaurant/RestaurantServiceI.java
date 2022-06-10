@@ -6,6 +6,7 @@ import com.noqtech.noq.dto.RestaurantDto;
 import java.util.List;
 
 public interface RestaurantServiceI {
-    public List<RestaurantDto> list();
-    public RestaurantDetailDto getDetails(Integer restaurantId);
+    List<RestaurantDto> list();
+
+    RestaurantDetailDto getDetails(Integer restaurantId);
 }

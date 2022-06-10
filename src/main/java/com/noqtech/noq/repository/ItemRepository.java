@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Integer> {
-    public List<Item> findAllByRestaurantId(Integer restaurantId);
+    List<Item> findAllByRestaurantId(Integer restaurantId);
 }
