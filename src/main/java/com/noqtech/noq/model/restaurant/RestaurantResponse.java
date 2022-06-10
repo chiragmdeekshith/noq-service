@@ -8,6 +8,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class RestaurantResponse {
+    private Integer restaurantId;
     private String name;
-    private Integer menuId;
 }
