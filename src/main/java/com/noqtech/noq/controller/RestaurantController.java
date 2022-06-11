@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/v1/restaurant")
+@RequestMapping(name = "/")
 public class RestaurantController {
     @Autowired
     private RestaurantMapperI restaurantMapper;
