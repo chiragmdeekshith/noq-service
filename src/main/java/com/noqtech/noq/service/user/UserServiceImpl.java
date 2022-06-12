@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserServiceI {
         user = new User(userDto);
         user = userRepository.saveAndFlush(user);
         userDto = userMapper.convertEntityToDto(user);
-        if (!Objects.isNull(user.getId())) {
+        if (!Objects.isNull(user.getUserId())) {
             userDto.setMessage(UserConstant.REGISTRATION_SUCCESSFUL);
         } else {
             userDto.setMessage(UserConstant.REGISTRATION_FAILED);

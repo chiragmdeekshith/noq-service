@@ -10,11 +10,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Restaurant {
+public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ITEM_ID")
+    private Integer itemId;
     @Column(name = "RESTAURANT_ID")
     private Integer restaurantId;
     @Column(name = "NAME")
-    private String restaurantName;
+    private String name;
+    @Column(name = "PRICE")
+    private Double price;
 }

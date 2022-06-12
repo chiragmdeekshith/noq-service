@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/v1/user")
+@RequestMapping(name = "/")
 public class UserController {
     @Autowired
     private UserMapperI userMapper;
     @Autowired
     private UserServiceI userService;
 
-    @PostMapping("/login")
+    @PostMapping("/v1/user/login")
     public ResponseEntity<UserResponse> login(@RequestBody UserRequest userRequest) {
         UserDto userDto = userMapper.convertRequestToDto(userRequest);
         userDto = userService.login(userDto);
@@ -29,7 +29,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(userResponse);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/v1/user/register")
     public ResponseEntity<UserResponse> register(@RequestBody UserRequest userRequest) {
         UserDto userDto = userMapper.convertRequestToDto(userRequest);
         userDto = userService.register(userDto);
