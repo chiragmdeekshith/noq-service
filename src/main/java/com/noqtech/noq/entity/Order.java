@@ -1,10 +1,12 @@
 package com.noqtech.noq.entity;
 
+import com.noqtech.noq.constant.OrderConstant;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "NOQ_ORDER")
@@ -19,7 +21,18 @@ public class Order {
     @Column(name = "USER_ID")
     private String userId;
     @Column(name = "TOTAL_PRICE")
-    private Double totalPrice;
+    private BigDecimal totalPrice;
     @Column(name = "STATUS")
     private String status;
+
+    public void setStatus(String status) {
+        if (OrderConstant.IN_PROGRESS.equals(status) ||
+                OrderConstant.READY_FOR_PICKUP.equals(status) ||
+                OrderConstant.COMPLETED.equals(status) ||
+                OrderConstant.CANCELLED.equals(status)) {
+            this.status = status;
+        } else {
+            this.status = OrderConstant.UNKNOWN;
+        }
+    }
 }

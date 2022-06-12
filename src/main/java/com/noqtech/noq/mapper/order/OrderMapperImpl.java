@@ -6,6 +6,7 @@ import com.noqtech.noq.entity.Order;
 import com.noqtech.noq.entity.OrderItem;
 import com.noqtech.noq.model.order.OrderRequest;
 import com.noqtech.noq.model.order.OrderResponse;
+import com.noqtech.noq.model.order.OrderStatusRequest;
 import com.noqtech.noq.model.order.OrderStatusResponse;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,10 @@ public class OrderMapperImpl implements OrderMapperI {
     @Override
     public OrderStatusResponse convertDtoToStatusResponse(OrderDto orderDto) {
         return modelMapper.map(orderDto, OrderStatusResponse.class);
+    }
+
+    @Override
+    public OrderDto convertRequestToDto(OrderStatusRequest orderStatusRequest) {
+        return modelMapper.map(orderStatusRequest, OrderDto.class);
     }
 }

@@ -5,6 +5,7 @@ import com.noqtech.noq.entity.Order;
 import com.noqtech.noq.entity.OrderItem;
 import com.noqtech.noq.model.order.OrderRequest;
 import com.noqtech.noq.model.order.OrderResponse;
+import com.noqtech.noq.model.order.OrderStatusRequest;
 import com.noqtech.noq.model.order.OrderStatusResponse;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface OrderMapperI {
     public OrderDto convertEntityToDto(Order order, List<OrderItem> orderItems);
 
     public OrderStatusResponse convertDtoToStatusResponse(OrderDto orderDto);
+
+    public OrderDto convertRequestToDto(OrderStatusRequest orderStatusRequest);
 }
