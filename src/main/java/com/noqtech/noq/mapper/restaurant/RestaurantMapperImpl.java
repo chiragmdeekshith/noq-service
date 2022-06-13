@@ -42,7 +42,7 @@ public class RestaurantMapperImpl implements RestaurantMapperI {
             restaurantDetailDto.setMessage(RestaurantDetailConstant.RESTAURANT_NOT_FOUND);
         } else {
             restaurantDetailDto.setRestaurantId(restaurant.getRestaurantId());
-            restaurantDetailDto.setRestaurantName(restaurant.getRestaurantName());
+            restaurantDetailDto.setRestaurantName(restaurant.getName());
             if (Objects.isNull(items) || items.isEmpty()) {
                 restaurantDetailDto.setMessage(RestaurantDetailConstant.ITEM_NOT_FOUND);
             } else {
