@@ -16,5 +16,5 @@ public class Restaurant {
     @Column(name = "RESTAURANT_ID")
     private Integer restaurantId;
     @Column(name = "NAME")
-    private String restaurantName;
+    private String name;
 }

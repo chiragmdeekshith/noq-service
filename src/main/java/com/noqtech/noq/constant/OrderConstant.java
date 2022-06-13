@@ -7,6 +7,7 @@ public class OrderConstant {
     public static final String READY_FOR_PICKUP = "READY_FOR_PICKUP";
     public static final String COMPLETED = "COMPLETED";
     public static final String CANCELLED = "CANCELLED";
+    public static final String UNKNOWN = "UNKNOWN";
 
     // Order message
     public static final String ORDER_NOT_FOUND = "ORDER_NOT_FOUND";

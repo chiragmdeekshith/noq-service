@@ -13,6 +13,7 @@ import com.noqtech.noq.util.order.OrderUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +42,7 @@ public class OrderServiceImpl implements OrderServiceI {
         order.setUserId(orderDto.getUserId());
         order.setStatus(OrderConstant.IN_PROGRESS);
         List<Item> items = getItemsFromOrderItemList(orderDto.getOrderItems());
-        Double totalPrice = OrderUtil.calculateTotalPrice(items);
+        BigDecimal totalPrice = OrderUtil.calculateTotalPrice(items);
         order.setTotalPrice(totalPrice);
         order = orderRepository.saveAndFlush(order);
 
@@ -74,6 +75,17 @@ public class OrderServiceImpl implements OrderServiceI {
     public OrderDto getOrderStatus(Integer orderId) {
         Order order = orderRepository.findById(orderId).orElse(null);
         OrderDto orderDto = orderMapper.convertEntityToDto(order, null);
+        return orderDto;
+    }
+
+    @Override
+    public OrderDto setOrderStatus(OrderDto orderDto) {
+        Order order = orderRepository.findById(orderDto.getOrderId()).orElse(null);
+        if(!Objects.isNull(order)){
+            order.setStatus(orderDto.getStatus());
+            order = orderRepository.saveAndFlush(order);
+        }
+        orderDto = orderMapper.convertEntityToDto(order, null);
         return orderDto;
     }
 
