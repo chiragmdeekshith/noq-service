@@ -38,7 +38,7 @@ public class OrderMapperImpl implements OrderMapperI {
             orderDto.setMessage(OrderConstant.ORDER_NOT_FOUND);
         } else {
             orderDto.setOrderId(order.getOrderId());
-            orderDto.setUserId(order.getUserId());
+            orderDto.setUserEmailId(order.getUserEmailId());
             orderDto.setStatus(order.getStatus());
             orderDto.setTotalPrice(order.getTotalPrice());
             if (Objects.isNull(orderItems) || orderItems.isEmpty()) {

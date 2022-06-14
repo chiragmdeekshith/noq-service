@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderDto {
     private Integer orderId;
-    private String userId;
+    private String userEmailId;
     private BigDecimal totalPrice;
     private String status;
     private List<OrderItem> orderItems;
