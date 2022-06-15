@@ -18,8 +18,8 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ORDER_ID")
     private Integer orderId;
-    @Column(name = "USER_ID")
-    private String userId;
+    @Column(name = "USER_EMAIL_ID")
+    private String userEmailId;
     @Column(name = "TOTAL_PRICE")
     private BigDecimal totalPrice;
     @Column(name = "STATUS")

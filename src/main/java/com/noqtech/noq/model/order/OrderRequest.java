@@ -11,6 +11,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 public class OrderRequest {
-    private String userId;
+    private String userEmailId;
     private List<OrderItem> orderItems;
 }

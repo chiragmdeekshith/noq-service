@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderResponse {
     private Integer orderId;
-    private String userId;
+    private String userEmailId;
     private Double totalPrice;
     private String status;
     private List<OrderItem> orderItems;

@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderServiceI {
 
         // Save Order repo
         Order order = new Order();
-        order.setUserId(orderDto.getUserId());
+        order.setUserEmailId(orderDto.getUserEmailId());
         order.setStatus(OrderConstant.IN_PROGRESS);
         List<Item> items = getItemsFromOrderItemList(orderDto.getOrderItems());
         BigDecimal totalPrice = OrderUtil.calculateTotalPrice(items);
