@@ -1,17 +1,26 @@
+
+## Local h2 db
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:noqdb
+#    username: noq_username
+#    password: noq_password
+#    driverClassName: org.h2.Driver
+#  h2:
+#    console.enabled: true
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate.ddl-auto: update
+#    show-sql: true
+
+# Local docker db
 spring:
   datasource:
-    url: jdbc:h2:mem:noqdb
-    #url: jdbc:mysql://localhost:3600/noq_dq
-    username: noq_username
-    #username: root
+    url: jdbc:mysql://127.0.0.1:3306/noq_db
+    username: root
     password: noq_password
-    driverClassName: org.h2.Driver
-    #driverClassName: com.mysql.cj.jdbc.Driver
-  h2:
-    console.enabled: true
+    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    #database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate.ddl-auto: update
-    #hibernate.ddl-auto: none
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    hibernate.ddl-auto: none #change this
     show-sql: true

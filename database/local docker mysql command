@@ -1,0 +1,10 @@
+Create a new container
+$ sudo docker run -d --name noq-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=noq_password mysql
+
+
+Go into the container
+$ sudo docker exec -it noq-mysql mysql -u root -p
+
+
+Create new db
+> create database noq_db;
