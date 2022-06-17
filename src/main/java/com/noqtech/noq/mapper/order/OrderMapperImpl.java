@@ -33,6 +33,7 @@ public class OrderMapperImpl implements OrderMapperI {
 
     @Override
     public OrderDto convertEntityToDto(Order order, List<OrderItem> orderItems) {
+        //todo convert items array into dto by counting ids
         OrderDto orderDto = new OrderDto();
         if (Objects.isNull(order)) {
             orderDto.setMessage(OrderConstant.ORDER_NOT_FOUND);

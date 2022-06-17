@@ -47,13 +47,7 @@ public class OrderServiceImpl implements OrderServiceI {
         order = orderRepository.saveAndFlush(order);
 
         //Save OrderItem Repo
-        List<OrderItem> orderItems = new ArrayList<>();
-        for (OrderItem orderItem : orderDto.getOrderItems()) {
-            OrderItem orderItemToSave = new OrderItem();
-            orderItemToSave.setOrderId(order.getOrderId());
-            orderItemToSave.setItemId(orderItem.getItemId());
-            orderItems.add(orderItemToSave);
-        }
+        List<OrderItem> orderItems = consolidateOrdersIntoOrderItems(order, orderDto.getOrderItems());
         orderItems = orderItemRepository.saveAllAndFlush(orderItems);
         orderDto = orderMapper.convertEntityToDto(order, orderItems);
 
@@ -91,12 +85,27 @@ public class OrderServiceImpl implements OrderServiceI {
 
     private List<Item> getItemsFromOrderItemList(List<OrderItem> orderItems) {
         List<Item> items = new ArrayList<>();
+        Item item;
         for (OrderItem orderItem : orderItems) {
-            Item item = itemRepository.findById(orderItem.getItemId()).orElse(null);
-            if (Objects.nonNull(item)) {
-                items.add(item);
+            for (int i = 0; i < orderItem.getQuantity(); i++) {
+                item = itemRepository.findById(orderItem.getItemId()).orElse(null);
+                if (Objects.nonNull(item)) {
+                    items.add(item);
+                }
             }
         }
         return items;
+    }
+
+    private List<OrderItem> consolidateOrdersIntoOrderItems(Order order, List<OrderItem> orderItems) {
+        List<OrderItem> resultOrderItems = new ArrayList<>();
+        for (OrderItem orderItem : orderItems) {
+            OrderItem orderItemToSave = new OrderItem();
+            orderItemToSave.setOrderId(order.getOrderId());
+            orderItemToSave.setItemId(orderItem.getItemId());
+            orderItemToSave.setQuantity(orderItem.getQuantity());
+            resultOrderItems.add(orderItemToSave);
+        }
+        return resultOrderItems;
     }
 }

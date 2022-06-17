@@ -17,4 +17,6 @@ public class Restaurant {
     private Integer restaurantId;
     @Column(name = "NAME")
     private String name;
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
 }
