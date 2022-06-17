@@ -1,23 +1,23 @@
-INSERT INTO RESTAURANT VALUES(1,'Udupi Upahar');
-INSERT INTO ITEM VALUES(1,'South Meals', 100, 1);
-INSERT INTO ITEM VALUES(2,'North Meals', 150, 1);
-INSERT INTO ITEM VALUES(3,'Rice Sambar', 50, 1);
+INSERT INTO restaurant VALUES(1, 'https://lh3.googleusercontent.com/VfVyrnzGqPA1G-ytuUSaq4aGkRssjbcQfyGZ4BAMMwZLMbqOPW0ZVvgHv6cp_mr94epxUbeTJRF5QOlT56Cvz-cDjfY=w512','Udupi Upahar');
+INSERT INTO item VALUES(1, 'https://farm8.staticflickr.com/7671/17269221094_6c0b6605a8_z.jpg','South Meals', 100, 1);
+INSERT INTO item VALUES(2, 'https://imgmedia.lbb.in/media/2018/01/5a4ecfbc528a2648671258dd_59c232a425ba773c89b50fde_1515114428947.jpg','North Meals', 150, 1);
+INSERT INTO item VALUES(3, 'https://1.bp.blogspot.com/-4t58KfHcXXk/WquRjX1YATI/AAAAAAAAw8o/iVgX_C3HFjgCuHgfT7G-8VTFWd89UWWaQCLcBGAs/s1600/cabbage-sambar-recipe.jpg','Rice Sambar', 50, 1);
 
-INSERT INTO RESTAURANT VALUES(2,'Truffles');
-INSERT INTO ITEM VALUES(4,'All American', 200, 2);
-INSERT INTO ITEM VALUES(5,'Nachos', 150, 2);
-INSERT INTO ITEM VALUES(6,'Diet Coke', 30, 2);
+INSERT INTO restaurant VALUES(2, 'https://media-cdn.tripadvisor.com/media/photo-s/0f/de/48/ed/truffles-restaurant-and.jpg','Truffles');
+INSERT INTO item VALUES(4, 'https://www.thespruceeats.com/thmb/Rw0FhZQr0JrpIkE0RH9X751Ad30=/1500x1000/filters:fill(auto,1)/all-american-burgers-480989-hero-05-6d4542f5661c4fd6889c16a445478e0c.jpg','All American', 200, 2);
+INSERT INTO item VALUES(5, 'https://static.toiimg.com/thumb/63625118.cms?width=1200&height=900','Nachos', 150, 2'https://static.toiimg.com/thumb/63625118.cms?width=1200&height=900');
+INSERT INTO item VALUES(6, 'https://n2.sdlcdn.com/imgs/e/x/t/Diet-Coke-Diet-Cola-200-SDL000999756-1-c5ddf.jpg','Diet Coke', 30, 2'https://n2.sdlcdn.com/imgs/e/x/t/Diet-Coke-Diet-Cola-200-SDL000999756-1-c5ddf.jpg');
 
-INSERT INTO RESTAURANT VALUES(3,'McD');
-INSERT INTO ITEM VALUES(7,'Aloo Tikki', 25, 3);
-INSERT INTO ITEM VALUES(8,'Coke', 40, 3);
-INSERT INTO ITEM VALUES(9,'Fries', 80, 3);
+INSERT INTO restaurant VALUES(3,'https://image.shutterstock.com/image-photo/nakornprathom-thailand-april-7-2014-260nw-188384423.jpg', 'McD');
+INSERT INTO item VALUES(7, 'https://mcdonaldsblog.in/wp-content/uploads/2018/04/McAloo-tikki.jpg','Aloo Tikki', 25, 3);
+INSERT INTO item VALUES(8, 'https://www.rd.com/wp-content/uploads/2020/10/mcdonalds-coke-collage-700x700.jpg','Coke', 40, 3);
+INSERT INTO item VALUES(9, 'https://www.mcdonalds.com/content/dam/usa/nfl/nutrition/items/regular/desktop/t-mcdonalds-Fries-Small-Medium.jpg','Fries', 80, 3);
 
-INSERT INTO RESTAURANT VALUES(4,'Wendy');
-INSERT INTO ITEM VALUES(10,'Burger', 150, 4);
-INSERT INTO ITEM VALUES(11,'Fries', 90, 4);
-INSERT INTO ITEM VALUES(12,'Pepsi', 50, 4);
+INSERT INTO restaurant VALUES(4, 'https://www.qsrmagazine.com/sites/default/files/styles/story_page/public/story/wendys-makes-changes-improve-quality-beef-supply-chain.jpg?itok=Goau7KRH','Wendy\'s');
+INSERT INTO item VALUES(10, 'https://www.qsrmagazine.com/sites/default/files/styles/story_page/public/story/why-dedicated-branding-so-important-restaurants.jpg?itok=Ke5a7dko','Burger', 150, 4);
+INSERT INTO item VALUES(11, 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2021%2F08%2F27%2FWendys-Hot-Crispy-Fries-FT-BLOG0821.jpg','Fries', 90, 4);
+INSERT INTO item VALUES(12, 'https://live.staticflickr.com/8674/16396129137_75a008c1a7_b.jpg','Pepsi', 50, 4);
 
-INSERT INTO RESTAURANT VALUES(5,'Chung Wah');
-INSERT INTO ITEM VALUES(13,'Noodles', 260, 5);
-INSERT INTO ITEM VALUES(14,'Fried rice', 250, 5);
+INSERT INTO restaurant VALUES(5, 'https://content.jdmagicbox.com/comp/bangalore/n7/080pxx80.xx80.151107185730.y2n7/catalogue/chung-wah-city-chinese-restaurant-bommasandra-industrial-area-bangalore-inexpensive-chinese-restaurants-below-rs-500--3n8n5b6.jpg','Chung Wah');
+INSERT INTO item VALUES(13, 'https://www.indianhealthyrecipes.com/wp-content/uploads/2021/07/hakka-noodles-recipe-500x375.jpg','Noodles', 260, 5);
+INSERT INTO item VALUES(14, 'https://www.indianhealthyrecipes.com/wp-content/uploads/2020/12/fried-rice.jpg','Fried rice', 250, 5);

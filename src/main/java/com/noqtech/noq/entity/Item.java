@@ -22,4 +22,6 @@ public class Item {
     private String name;
     @Column(name = "PRICE")
     private BigDecimal price;
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
 }

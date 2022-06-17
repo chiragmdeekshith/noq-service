@@ -10,4 +10,5 @@ import lombok.Setter;
 public class RestaurantResponse {
     private Integer restaurantId;
     private String name;
+    private String imageUrl;
 }

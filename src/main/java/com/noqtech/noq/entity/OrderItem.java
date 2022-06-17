@@ -19,6 +19,7 @@ public class OrderItem {
     private Integer orderId;
     @Column(name = "ITEM_ID")
     private Integer itemId;
-
+    @Column(name = "QUANTITY")
+    private Integer quantity;
 
 }
