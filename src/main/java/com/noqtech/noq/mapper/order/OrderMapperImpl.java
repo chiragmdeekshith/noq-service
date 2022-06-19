@@ -4,6 +4,7 @@ import com.noqtech.noq.constant.OrderConstant;
 import com.noqtech.noq.dto.OrderDto;
 import com.noqtech.noq.entity.Order;
 import com.noqtech.noq.entity.OrderItem;
+import com.noqtech.noq.mapper.orderItem.OrderItemMapperI;
 import com.noqtech.noq.model.order.OrderRequest;
 import com.noqtech.noq.model.order.OrderResponse;
 import com.noqtech.noq.model.order.OrderStatusRequest;
@@ -21,19 +22,31 @@ public class OrderMapperImpl implements OrderMapperI {
     @Autowired
     private ModelMapper modelMapper;
 
+    @Autowired
+    private OrderItemMapperI orderItemMapper;
+
     @Override
     public OrderDto convertRequestToDto(OrderRequest orderRequest) {
-        return modelMapper.map(orderRequest, OrderDto.class);
+        OrderDto orderDto = new OrderDto();
+        orderDto.setUserEmailId(orderRequest.getUserEmailId());
+        orderDto.setOrderItemDtos(orderItemMapper.convertRequestToDto(orderRequest.getOrderItemRequests()));
+        return orderDto;
     }
 
     @Override
     public OrderResponse convertDtoToResponse(OrderDto orderDto) {
-        return modelMapper.map(orderDto, OrderResponse.class);
+        OrderResponse orderResponse = new OrderResponse();
+        orderResponse.setOrderId(orderDto.getOrderId());
+        orderResponse.setUserEmailId(orderDto.getUserEmailId());
+        orderResponse.setTotalPrice(orderDto.getTotalPrice());
+        orderResponse.setStatus(orderDto.getStatus());
+        orderResponse.setMessage(orderDto.getMessage());
+        orderResponse.setOrderItemResponses(orderItemMapper.convertDtoToResponse(orderDto.getOrderItemDtos()));
+        return orderResponse;
     }
 
     @Override
     public OrderDto convertEntityToDto(Order order, List<OrderItem> orderItems) {
-        //todo convert items array into dto by counting ids
         OrderDto orderDto = new OrderDto();
         if (Objects.isNull(order)) {
             orderDto.setMessage(OrderConstant.ORDER_NOT_FOUND);
@@ -45,7 +58,7 @@ public class OrderMapperImpl implements OrderMapperI {
             if (Objects.isNull(orderItems) || orderItems.isEmpty()) {
                 orderDto.setMessage(OrderConstant.ORDER_ITEMS_NOT_FOUND);
             } else {
-                orderDto.setOrderItems(orderItems);
+                orderDto.setOrderItemDtos(orderItemMapper.convertEntityToDto(orderItems));
                 orderDto.setMessage(OrderConstant.ORDER_AND_ITEMS_FOUND);
             }
         }
