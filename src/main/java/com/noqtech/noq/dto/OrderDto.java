@@ -16,6 +16,6 @@ public class OrderDto {
     private String userEmailId;
     private BigDecimal totalPrice;
     private String status;
-    private List<OrderItem> orderItems;
+    private List<OrderItemDto> orderItemDtos;
     private String message;
 }
