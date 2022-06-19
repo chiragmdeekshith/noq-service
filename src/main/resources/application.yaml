@@ -22,5 +22,5 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: update #change this
+    hibernate.ddl-auto: none #change this
     show-sql: true
