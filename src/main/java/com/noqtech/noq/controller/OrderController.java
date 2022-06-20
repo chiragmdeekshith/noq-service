@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping(name = "/")
@@ -51,5 +53,12 @@ public class OrderController {
         orderDto = orderService.setOrderStatus(orderDto);
         OrderStatusResponse orderStatusResponse = orderMapper.convertDtoToStatusResponse(orderDto);
         return ResponseEntity.status(HttpStatus.OK).body(orderStatusResponse);
+    }
+
+    @GetMapping("/v1/orders/user/{userEmailId}")
+    public ResponseEntity<List<OrderResponse>> getOrdersByUser(@PathVariable("userEmailId") String userEmailId) {
+        List<OrderDto> orderDtos = orderService.getOrdersByUser(userEmailId);
+        List<OrderResponse> orderResponses = orderMapper.convertDtoToResponse(orderDtos);
+        return ResponseEntity.status(HttpStatus.OK).body(orderResponses);
     }
 }

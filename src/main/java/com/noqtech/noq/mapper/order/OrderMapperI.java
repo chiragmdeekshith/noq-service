@@ -20,4 +20,6 @@ public interface OrderMapperI {
     public OrderStatusResponse convertDtoToStatusResponse(OrderDto orderDto);
 
     public OrderDto convertRequestToDto(OrderStatusRequest orderStatusRequest);
+
+    public List<OrderResponse> convertDtoToResponse(List<OrderDto> orderDtos);
 }

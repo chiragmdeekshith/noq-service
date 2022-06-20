@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,6 +44,15 @@ public class OrderMapperImpl implements OrderMapperI {
         orderResponse.setMessage(orderDto.getMessage());
         orderResponse.setOrderItemResponses(orderItemMapper.convertDtoToResponse(orderDto.getOrderItemDtos()));
         return orderResponse;
+    }
+
+    @Override
+    public List<OrderResponse> convertDtoToResponse(List<OrderDto> orderDtos) {
+        List<OrderResponse> orderResponses = new ArrayList<>();
+        for (OrderDto orderDto: orderDtos) {
+            orderResponses.add(this.convertDtoToResponse(orderDto));
+        }
+        return orderResponses;
     }
 
     @Override

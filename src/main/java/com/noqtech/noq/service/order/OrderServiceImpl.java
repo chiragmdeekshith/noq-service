@@ -59,7 +59,7 @@ public class OrderServiceImpl implements OrderServiceI {
     public OrderDto getOrder(Integer orderId) {
         Order order = orderRepository.findById(orderId).orElse(null);
         List<OrderItem> orderItems = null;
-        if (!Objects.isNull(order)) {
+        if (Objects.nonNull(order)) {
             orderItems = orderItemRepository.findAllByOrderId(orderId);
         }
         OrderDto orderDto = orderMapper.convertEntityToDto(order, orderItems);
@@ -76,12 +76,27 @@ public class OrderServiceImpl implements OrderServiceI {
     @Override
     public OrderDto setOrderStatus(OrderDto orderDto) {
         Order order = orderRepository.findById(orderDto.getOrderId()).orElse(null);
-        if(!Objects.isNull(order)){
+        if(Objects.nonNull(order)){
             order.setStatus(orderDto.getStatus());
             order = orderRepository.saveAndFlush(order);
         }
         orderDto = orderMapper.convertEntityToDto(order, null);
         return orderDto;
+    }
+
+    @Override
+    public List<OrderDto> getOrdersByUser(String userEmailId) {
+        List<OrderDto> orderDtos = new ArrayList<>();
+        List<Order> orders = orderRepository.findAllByUserEmailId(userEmailId);
+        for(Order order: orders){
+            List<OrderItem> orderItems = null;
+            if (Objects.nonNull(order)) {
+                orderItems = orderItemRepository.findAllByOrderId(order.getOrderId());
+            }
+            OrderDto orderDto = orderMapper.convertEntityToDto(order, orderItems);
+            orderDtos.add(orderDto);
+        }
+        return orderDtos;
     }
 
     private List<Item> getItemsFromOrderItemDtos(List<OrderItemDto> orderItemDtos) {
