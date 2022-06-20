@@ -39,7 +39,7 @@ public class RestaurantServiceImpl implements RestaurantServiceI {
     public RestaurantDetailDto getDetails(Integer restaurantId) {
         Restaurant restaurant = restaurantRepository.findById(restaurantId).orElse(null);
         List<Item> items = null;
-        if (!Objects.isNull(restaurant)) {
+        if (Objects.nonNull(restaurant)) {
             items = itemRepository.findAllByRestaurantId(restaurantId);
         }
         RestaurantDetailDto restaurantDetailDto = restaurantMapper.convertEntityToDto(restaurant, items);

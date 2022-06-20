@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserServiceI {
     public UserDto register(UserDto userDto) {
 
         User user = userRepository.findByEmailId(userDto.getEmailId());
-        if (!Objects.isNull(user)) {
+        if (Objects.nonNull(user)) {
             userDto.setMessage(UserConstant.EMAIL_ID_ALREADY_EXISTS);
             return userDto;
         }
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserServiceI {
         user = new User(userDto);
         user = userRepository.saveAndFlush(user);
         userDto = userMapper.convertEntityToDto(user);
-        if (!Objects.isNull(user.getUserId())) {
+        if (Objects.nonNull(user.getUserId())) {
             userDto.setMessage(UserConstant.REGISTRATION_SUCCESSFUL);
         } else {
             userDto.setMessage(UserConstant.REGISTRATION_FAILED);
