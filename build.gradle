@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.noqtech'
-version = '0.0.1-SNAPSHOT'
+version = ''
 sourceCompatibility = '17'
 
 repositories {
