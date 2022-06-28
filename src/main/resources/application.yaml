@@ -1,4 +1,3 @@
-
 ## Local h2 db
 #spring:
 #  datasource:
@@ -13,14 +12,14 @@
 #    hibernate.ddl-auto: update
 #    show-sql: true
 
-# Local docker db
+# Default Local db
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/noq_db
-    username: root
-    password: noq_password
-    driverClassName: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL:jdbc:mysql://127.0.0.1:3306/noq_db}
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:noq_password}
+    driverClassName: ${DATABASE_DRIVER:com.mysql.cj.jdbc.Driver}
   jpa:
-    database-platform: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: none #change this
-    show-sql: true
+    database-platform: ${DATABASE_DIALECT:org.hibernate.dialect.MySQL5Dialect}
+    hibernate.ddl-auto: ${DATABASE_DDL_AUTO:none}
+    show-sql: ${DATABASE_SHOW_SQL:true}
